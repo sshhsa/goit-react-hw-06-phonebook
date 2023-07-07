@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { addTask } from '../../redux/tasksSlice';
+import { addContact } from '../../redux/contactsSlice';
 
 import { Button } from 'components/Button/Button';
-import css from './TaskForm.module.css';
+import css from './ContactForm.module.css';
 
-export const TaskForm = () => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    dispatch(addTask(form.elements.text.value));
+    dispatch(addContact(form.elements.text.value));
     form.reset();
   };
 
@@ -20,9 +20,9 @@ export const TaskForm = () => {
         className={css.field}
         type="text"
         name="text"
-        placeholder="Enter task text..."
+        placeholder="Add your contact..."
       />
-      <Button type="submit">Add task</Button>
+      <Button type="submit">Add contact</Button>
     </form>
   );
 };

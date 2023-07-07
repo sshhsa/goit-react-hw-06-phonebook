@@ -1,18 +1,18 @@
 import { useDispatch } from 'react-redux';
-import { deleteTask, toggleCompleted } from '../../../redux/tasksSlice';
+import { deleteContact, toggleMarked } from '../../../redux/contactsSlice';
 
 import { MdClose } from 'react-icons/md';
-import css from './TaskListItem.module.css';
+import css from './ContactItem.module.css';
 
-export const TaskListItem = ({ task }) => {
+export const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
 
   const handleToggle = () => {
-    dispatch(toggleCompleted(task.id));
+    dispatch(toggleMarked(contact.id));
   };
 
   const handleDelete = () => {
-    dispatch(deleteTask(task.id));
+    dispatch(deleteContact(contact.id));
   };
 
   return (
@@ -21,9 +21,9 @@ export const TaskListItem = ({ task }) => {
         type="checkbox"
         className={css.checkbox}
         onChange={handleToggle}
-        checked={task.completed}
+        checked={contact.marked}
       />
-      <p className={css.text}>{task.text}</p>
+      <p className={css.text}>{contact.text}</p>
       <button className={css.btn} onClick={handleDelete}>
         <MdClose size={24} />
       </button>

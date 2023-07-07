@@ -9,7 +9,6 @@ import css from './StatusFilter.module.css';
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
-
   const filter = useSelector(getStatusFilter);
 
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
@@ -22,7 +21,7 @@ export const StatusFilter = () => {
           handleFilterChange(statusFilters.all);
         }}
       >
-        All
+        All contacts
       </Button>
       <Button
         selected={filter === statusFilters.active}
@@ -30,15 +29,15 @@ export const StatusFilter = () => {
           handleFilterChange(statusFilters.active);
         }}
       >
-        Active
+        Contacts
       </Button>
       <Button
-        selected={filter === statusFilters.completed}
+        selected={filter === statusFilters.marked}
         onClick={() => {
-          handleFilterChange(statusFilters.completed);
+          handleFilterChange(statusFilters.marked);
         }}
       >
-        Completed
+        Marked
       </Button>
     </div>
   );
