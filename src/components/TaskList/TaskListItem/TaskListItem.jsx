@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { toggleCompleted, deletetask } from 'redux/actions';
+import { deleteTask, toggleCompleted } from '../../../redux/tasksSlice';
 
 import { MdClose } from 'react-icons/md';
 import css from './TaskListItem.module.css';
@@ -12,7 +12,7 @@ export const TaskListItem = ({ task }) => {
   };
 
   const handleDelete = () => {
-    dispatch(deletetask(task.id));
+    dispatch(deleteTask(task.id));
   };
 
   return (
