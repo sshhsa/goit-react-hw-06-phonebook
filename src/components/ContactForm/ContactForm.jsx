@@ -10,7 +10,12 @@ export const ContactForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    dispatch(addContact(form.elements.text.value));
+    dispatch(
+      addContact(
+        form.elements.name.value.trim(),
+        form.elements.number.value.trim()
+      )
+    );
     form.reset();
   };
 
@@ -18,8 +23,14 @@ export const ContactForm = () => {
     <form className={css.form} onSubmit={handleSubmit}>
       <input
         className={css.field}
-        type="text"
-        name="text"
+        type="name"
+        name="name"
+        placeholder="Add your contact..."
+      />
+      <input
+        className={css.field}
+        type="number"
+        name="number"
         placeholder="Add your contact..."
       />
       <Button type="submit">Add contact</Button>

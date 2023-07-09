@@ -23,7 +23,8 @@ export const ContactItem = ({ contact }) => {
         onChange={handleToggle}
         checked={contact.marked}
       />
-      <p className={css.text}>{contact.text}</p>
+      <p className={css.text}>{contact.name}</p>
+      <p className={css.text}>{contact.number}</p>
       <button className={css.btn} onClick={handleDelete}>
         <MdClose size={24} />
       </button>
